@@ -7,9 +7,9 @@
 
         sudo apt install zsh
 
-2. Clone this repo with all submodules to `~`
+2. Clone this repo **with all submodules** to `~`
 
-        git clone --recurse-submodules ~/zsh
+        git clone --recurse-submodules git@github.com:dstockhammer/zsh.git ~/zsh
 
 3. Create a `.zshrc` that references the configuration in this repository
 
