@@ -27,6 +27,10 @@
 
         source ~/.zshrc
 
+6.  Bonus: Update ohmyzsh and all themes/plugins:
+
+        git submodule update --recursive --remote
+
 ## Windows Terminal + WSL
 
 ![](windows-terminal.png)
