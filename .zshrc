@@ -106,5 +106,27 @@ export DEFAULT_USER="$(whoami)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# User binaries
+if [[ -d "$HOME/.local/bin" ]]; then
+  export PATH=$HOME/.local/bin:$PATH
+fi
+
+# PyEnv
+if [[ -d "$HOME/.pyenv/bin" ]]; then
+  export PATH=$HOME/.pyenv/bin:$PATH
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+# Poetry
+if [[ -d "$HOME/.poetry/bin" ]]; then
+  export PATH=$HOME/.poetry/bin:$PATH
+fi
+
+# Rust
+if [[ -d "$HOME/.cargo/bin" ]]; then
+  export PATH=$HOME/.cargo/bin:$PATH
+fi
+
 # To customize prompt, run `p10k configure` or edit /home/daniel/.p10k.zsh.
 [[ ! -f $HOME/zsh/.p10k.zsh ]] || source $HOME/zsh/.p10k.zsh
