@@ -10,6 +10,11 @@
 2.  Make `zsh` your default shell
 
         chsh -s $(which zsh)
+        
+    Note: if you wish to run this command with `sudo`, you have to specify
+    the current user:
+    
+        sudo chsh -s $(which zsh) $USER
 
 3.  Clone this repo **with all submodules** to `~`
 
