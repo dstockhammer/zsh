@@ -36,11 +36,11 @@ fi
 
 ./ohmyzsh/tools/upgrade.sh
 
-printf "\n${BLUE}%s${NORMAL}\n" "Updating ohmyzsh plugins and themes"
+printf "\n${BLUE}%s${RESET}\n" "Updating ohmyzsh plugins and themes"
 
 for plugin in custom/*/*/; do
-  printf "${YELLOW}%s${NORMAL}\n" "${plugin%/}"
+  printf "${YELLOW}%s${RESET}\n" "${plugin%/}"
   git -C "$plugin" pull --rebase origin master
 done
 
-printf "${BLUE}%s${NORMAL}\n" "Hooray! Custom plugins and themes have been updated and/or are at the current version."
+printf "${BLUE}%s${RESET}\n" "Hooray! Custom plugins and themes have been updated and/or are at the current version."
