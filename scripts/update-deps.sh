@@ -44,3 +44,5 @@ for plugin in custom/*/*/; do
 done
 
 printf "${BLUE}%s${RESET}\n" "Hooray! Custom plugins and themes have been updated and/or are at the current version."
+
+git commit -am "update dependencies"
