@@ -70,12 +70,17 @@ DISABLE_AUTO_UPDATE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 export ZSH_CUSTOM="$HOME/zsh/custom"
 
+# User binaries
+if [[ -d "$HOME/.local/bin" ]]; then
+  export PATH=$HOME/.local/bin:$PATH
+fi
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git thefuck zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,11 +110,6 @@ export DEFAULT_USER="$(whoami)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# User binaries
-if [[ -d "$HOME/.local/bin" ]]; then
-  export PATH=$HOME/.local/bin:$PATH
-fi
 
 # PyEnv
 if [[ -d "$HOME/.pyenv/bin" ]]; then

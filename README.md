@@ -10,10 +10,10 @@
 2.  Make `zsh` your default shell
 
         chsh -s $(which zsh)
-        
+
     Note: if you wish to run this command with `sudo`, you have to specify
     the current user:
-    
+
         sudo chsh -s $(which zsh) $USER
 
 3.  Clone this repo **with all submodules** to `~`
@@ -28,13 +28,12 @@
 
         zsh
 
-    Alternatively, if you're already using `zsh` just reload your config:
+    Alternatively, if you're already using `zsh`, completely restart your shell.
+    (**Do not** just reload your config with `source ~/.zshrc`)
 
-        source ~/.zshrc
+6. Update ohmyzsh and all themes/plugins:
 
-6.  Bonus: Update ohmyzsh and all themes/plugins:
-
-        git submodule update --recursive --remote
+        ./scripts/update-deps.sh
 
 ## Windows Terminal + WSL
 
@@ -81,4 +80,59 @@ Patched Solarized Dark theme from
     "background": "#001e27",
     "foreground": "#708284"
 }
+```
+
+## Plugins and other tools
+
+### pyenv
+
+See https://github.com/pyenv/pyenv
+
+**TL;DR** installation:
+
+    curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+
+Finding and installing the latest python version:
+
+```sh
+# returns a list of 3.9.x versions.
+pyenv install --list | grep 3.9
+
+# take the latest version; let's say 3.9.1
+
+# install a specific version
+pyenv install 3.9.1
+
+# set the installed version as global version
+pyenv global 3.9.1
+
+# check installed versions and confirm the new version is now global
+pyenv versions
+
+# never use `system` unless you know what you're doing!
+```
+
+### poetry
+
+See https://github.com/python-poetry/poetry
+
+**TL;DR** installation:
+
+    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+
+### thefuck
+
+See https://github.com/nvbn/thefuck
+
+**TL;DR** installation:
+
+```sh
+sudo apt update && sudo apt install python3-dev python3-pip python3-setuptools
+
+# make sure to switch to system python!
+pyenv shell system
+
+pip3 install thefuck
+
+# restart your shell
 ```
