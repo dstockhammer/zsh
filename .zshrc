@@ -128,5 +128,15 @@ if [[ -d "$HOME/.cargo/bin" ]]; then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
 
+# Kubernetes
+if command -v kubectl &> /dev/null; then
+  source <(kubectl completion zsh)
+fi
+
+# Kubernetes
+if command -v helm &> /dev/null; then
+  source <(helm completion zsh)
+fi
+
 # To customize prompt, run `p10k configure` or edit /home/daniel/.p10k.zsh.
 [[ ! -f $HOME/zsh/.p10k.zsh ]] || source $HOME/zsh/.p10k.zsh
