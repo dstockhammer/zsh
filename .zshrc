@@ -128,6 +128,11 @@ if [[ -d "$HOME/.cargo/bin" ]]; then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
 
+# Homebrew
+if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
+  export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+fi
+
 # Kubernetes
 if command -v kubectl &> /dev/null; then
   source <(kubectl completion zsh)
