@@ -114,6 +114,7 @@ export DEFAULT_USER="$(whoami)"
 # PyEnv
 if [[ -d "$HOME/.pyenv/bin" ]]; then
   export PATH=$HOME/.pyenv/bin:$PATH
+  eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
@@ -130,7 +131,7 @@ fi
 
 # Homebrew
 if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
-  export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 # Kubernetes
