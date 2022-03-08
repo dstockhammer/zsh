@@ -149,7 +149,12 @@ if command -v helm &> /dev/null; then
   source <(helm completion zsh)
 fi
 
-# Krew
+# direnv
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
+# krew
 if [[ -d "${KREW_ROOT:-$HOME/.krew}" ]]; then
   export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 fi
