@@ -149,5 +149,16 @@ if command -v helm &> /dev/null; then
   source <(helm completion zsh)
 fi
 
+# Krew
+if [[ -d "${KREW_ROOT:-$HOME/.krew}" ]]; then
+  export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+fi
+
+# kubectx & kubens
+# if brew --prefix kubectx &> /dev/null; then
+#   # todo: doesn't work :(
+#   autoload $(brew --prefix kubectx)/share/zsh/site-functions
+# fi
+
 # To customize prompt, run `p10k configure` or edit /home/daniel/.p10k.zsh.
 [[ ! -f $HOME/zsh/.p10k.zsh ]] || source $HOME/zsh/.p10k.zsh
