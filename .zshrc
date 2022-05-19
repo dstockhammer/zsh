@@ -165,5 +165,10 @@ fi
 #   autoload $(brew --prefix kubectx)/share/zsh/site-functions
 # fi
 
+# ory
+if command -v ory &> /dev/null; then
+  source <(ory completion zsh)
+fi
+
 # To customize prompt, run `p10k configure` or edit /home/daniel/.p10k.zsh.
 [[ ! -f $HOME/zsh/.p10k.zsh ]] || source $HOME/zsh/.p10k.zsh
