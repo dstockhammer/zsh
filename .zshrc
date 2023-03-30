@@ -119,11 +119,6 @@ if [[ -d "$HOME/.pyenv/bin" ]]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-# Poetry
-if [[ -d "$HOME/.poetry/bin" ]]; then
-  export PATH=$HOME/.poetry/bin:$PATH
-fi
-
 # Rust
 if [[ -d "$HOME/.cargo/bin" ]]; then
   export PATH=$HOME/.cargo/bin:$PATH
