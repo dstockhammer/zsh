@@ -111,6 +111,11 @@ export DEFAULT_USER="$(whoami)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Use Windows browser in WSL
+if command -v wslview &> /dev/null; then
+  export BROWSER=wslview
+fi
+
 # PyEnv
 if [[ -d "$HOME/.pyenv/bin" ]]; then
   export PATH=$HOME/.pyenv/bin:$PATH
@@ -144,6 +149,11 @@ if command -v helm &> /dev/null; then
   source <(helm completion zsh)
 fi
 
+# Helmfile
+if command -v helmfile &> /dev/null; then
+  source <(helmfile completion zsh)
+fi
+
 # direnv
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
@@ -168,10 +178,10 @@ fi
 # nvm
 if [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ]; then
   export NVM_DIR="$HOME/.nvm"
-  . "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
+  source "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
 
   if [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
-    . "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" 
+    source "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"
   fi
 fi
 

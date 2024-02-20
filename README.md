@@ -82,6 +82,17 @@ Patched Solarized Dark theme from
 }
 ```
 
+### Browser integration
+
+To configure WSL to open browser URLs in Windows, you can use the `wslview` utility, which is a part of the `wslu` package.
+
+    sudo apt install wslu
+
+Configure `wslview` to open your browser of choice in Windows. Here is an example for Firefox:
+
+    wslview -r $(wslpath -au 'C:\Program Files\Mozilla Firefox\firefox.exe')
+
+
 ## Plugins and other tools
 
 ### pyenv
