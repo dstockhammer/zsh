@@ -165,5 +165,15 @@ if command -v ory &> /dev/null; then
   source <(ory completion zsh)
 fi
 
+# nvm
+if [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  . "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
+
+  if [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
+    . "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" 
+  fi
+fi
+
 # To customize prompt, run `p10k configure` or edit /home/daniel/.p10k.zsh.
 [[ ! -f $HOME/zsh/.p10k.zsh ]] || source $HOME/zsh/.p10k.zsh
