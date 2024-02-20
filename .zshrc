@@ -82,6 +82,14 @@ fi
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
+# see https://github.com/zsh-users/zsh-completions/issues/603
+FPATH+=":$ZSH_CUSTOM/plugins/zsh-completions/src"
+
+if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
+  FPATH+=":$(/home/linuxbrew/.linuxbrew/bin/brew --prefix)/share/zsh-completions"
+  FPATH+=":$(/home/linuxbrew/.linuxbrew/bin/brew --prefix)/share/zsh/site-functions"
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -164,12 +172,6 @@ if [[ -d "${KREW_ROOT:-$HOME/.krew}" ]]; then
   export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 fi
 
-# kubectx & kubens
-# if brew --prefix kubectx &> /dev/null; then
-#   # todo: doesn't work :(
-#   autoload $(brew --prefix kubectx)/share/zsh/site-functions
-# fi
-
 # ory
 if command -v ory &> /dev/null; then
   source <(ory completion zsh)
@@ -185,5 +187,5 @@ if [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ]; then
   fi
 fi
 
-# To customize prompt, run `p10k configure` or edit /home/daniel/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit /home/dan/.p10k.zsh.
 [[ ! -f $HOME/zsh/.p10k.zsh ]] || source $HOME/zsh/.p10k.zsh
