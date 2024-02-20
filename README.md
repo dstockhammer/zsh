@@ -39,10 +39,9 @@
 
 ![](windows-terminal.png)
 
-Settings for [Windows Terminal](https://github.com/microsoft/terminal) with
-[WSL](https://docs.microsoft.com/en-us/windows/wsl/):
+Settings for [Windows Terminal](https://github.com/microsoft/terminal) with [WSL](https://docs.microsoft.com/en-us/windows/wsl/):
 
-```javascript
+```json
 {
     "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "hidden": false,
@@ -55,10 +54,9 @@ Settings for [Windows Terminal](https://github.com/microsoft/terminal) with
 }
 ```
 
-Patched Solarized Dark theme from
-[Windows Terminal Themes](https://atomcorp.github.io/themes/):
+Patched Solarized Dark theme from [Windows Terminal Themes](https://windowsterminalthemes.dev):
 
-```javascript
+```json
 {
     "name": "Solarized Dark - Patched",
     "black": "#002831",
