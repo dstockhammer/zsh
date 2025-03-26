@@ -137,6 +137,11 @@ if [[ -d "$HOME/.cargo/bin" ]]; then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
 
+# Go
+if [[ -d "$HOME/go/bin" ]]; then
+  export PATH=$HOME/go/bin:$PATH
+fi
+
 # Homebrew
 if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
