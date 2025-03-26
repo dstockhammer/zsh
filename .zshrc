@@ -152,11 +152,6 @@ if command -v kubectl &> /dev/null; then
   source <(kubectl completion zsh)
 fi
 
-# Kubernetes (Zalando flavor)
-if command -v zkubectl &> /dev/null; then
-  source <(zkubectl completion zsh)
-fi
-
 # Helm
 if command -v helm &> /dev/null; then
   source <(helm completion zsh)
