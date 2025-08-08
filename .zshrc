@@ -132,6 +132,11 @@ if [[ -d "$HOME/.pyenv/bin" ]]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+# uv
+if command -v uv &> /dev/null; then
+  source <(uv generate-shell-completion zsh)
+fi
+
 # Rust
 if [[ -d "$HOME/.cargo/bin" ]]; then
   export PATH=$HOME/.cargo/bin:$PATH
@@ -177,7 +182,7 @@ if command -v ory &> /dev/null; then
   source <(ory completion zsh)
 fi
 
-# nvm
+# nvm via linuxbrew
 if [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ]; then
   export NVM_DIR="$HOME/.nvm"
   source "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
@@ -187,5 +192,10 @@ if [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ]; then
   fi
 fi
 
-# To customize prompt, run `p10k configure` or edit /home/dan/.p10k.zsh.
+# pnpm
+if command -v pnpm &> /dev/null; then
+  source <(pnpm completion zsh)
+fi
+
+# To customize prompt, run `p10k configure` or edit $HOME/zsh/.p10k.zsh.
 [[ ! -f $HOME/zsh/.p10k.zsh ]] || source $HOME/zsh/.p10k.zsh
