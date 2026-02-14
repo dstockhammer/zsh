@@ -26,16 +26,17 @@ A modern [zsh](https://www.zsh.org/) setup with [Antidote](https://antidote.sh/)
 4.  Create a `.zshenv` that configures zsh to use `$ZDOTDIR`
 
         cat << 'EOF' >| ~/.zshenv
-        export ZDOTDIR=~/.config/zsh
+        export ZDOTDIR=$HOME/.config/zsh
         [[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
         EOF
+
+    Note: If you didn't install antidote via AUR, you'll have to configure the antidote dir. Add it to `.zshenv` before everything else: `export ANTIDOTE_DIR="/path/to/antidote"`
 
 5.  Switch to `zsh` and enjoy 🌟🦄🌟
 
         zsh
 
-    Alternatively, if you're already using `zsh`, completely restart your shell.
-    (**Do not** just reload your config with `source ~/.zshenv`)
+    Alternatively, if you're already using `zsh`, completely restart your shell. **Do not** just reload your config with `source ~/.zshenv`.
 
 ## Misc
 

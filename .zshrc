@@ -1,6 +1,6 @@
 # Antidote
 # https://antidote.sh
-source /usr/share/zsh-antidote/antidote.zsh
+source ${ANTIDOTE_DIR:-/usr/share/zsh-antidote}/antidote.zsh
 antidote load
 
 # User binaries
@@ -45,5 +45,5 @@ fi
 
 # Starship
 # https://starship.rs
-export STARSHIP_CONFIG=${ZDOTDIR:-$HOME/.config}/starship.toml
+export STARSHIP_CONFIG=${STARSHIP_CONFIG:-$ZDOTDIR/starship.toml}
 eval "$(starship init zsh)"
