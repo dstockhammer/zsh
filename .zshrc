@@ -1,3 +1,8 @@
+# Configure the history plugin to respect $HISTFILE if it's configured
+if [[ ! -z "$HISTFILE" ]]; then
+  zstyle ':zephyr:plugin:history' histfile "$HISTFILE"
+fi
+
 # Antidote
 # https://antidote.sh
 source ${ANTIDOTE_DIR:-/usr/share/zsh-antidote}/antidote.zsh
