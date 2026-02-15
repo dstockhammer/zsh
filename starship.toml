@@ -51,8 +51,8 @@ disabled = true
 [character]
 disabled = false
 format = '$symbol'
-success_symbol = "[](fg:green)[ ✔ ](bold bg:green)[](bg:green fg:yellow)"
-error_symbol = "[](fg:red)[ ✘ ](bold bg:red)[](bg:red fg:yellow)"
+success_symbol = "[](fg:green)[ ✔ ](bold fg:crust bg:green)[](bg:green fg:yellow)"
+error_symbol = "[](fg:red)[ ✘ ](bold fg:crust bg:red)[](bg:red fg:yellow)"
 vimcmd_symbol = '[❮](bold fg:green)'
 vimcmd_replace_one_symbol = '[❮](bold fg:lavender)'
 vimcmd_replace_symbol = '[❮](bold fg:lavender)'
@@ -62,18 +62,18 @@ vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 min_time = 600
 show_milliseconds = true
 format = "[ took $duration ]($style)"
-style = "bg:yellow fg:crust"
+style = "fg:crust bg:yellow"
 disabled = false
 
 [username]
 show_always = true
-style_user = "bg:lavender fg:crust"
-style_root = "bg:lavender fg:crust"
+style_user = "fg:crust bg:lavender"
+style_root = "fg:crust bg:lavender"
 format = '[ $user]($style)'
 
 [os]
 disabled = false
-style = "bg:lavender fg:crust"
+style = "fg:crust bg:lavender"
 format = '[ $symbol ]($style)'
 
 [os.symbols]
@@ -99,7 +99,7 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
 [directory]
-style = "bg:peach fg:crust"
+style = "fg:crust bg:peach"
 format = "[$path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -169,13 +169,13 @@ format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
 [docker_context]
 disabled = true
 symbol = ""
-style = "bg:sapphire"
+style = "fg:crust bg:sapphire"
 format = '[[ $symbol( $context) ](fg:crust bg:sapphire)]($style)'
 
 [kubernetes]
 disabled = false
 symbol = "☸ "
-style = "bg:sapphire"
+style = "fg:crust bg:sapphire"
 format = '[ $symbol $context ]($style)'
 
 [conda]
