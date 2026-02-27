@@ -26,9 +26,7 @@ $kubernetes\
 right_format = """
 $character\
 $cmd_duration\
-[](bg:yellow fg:peach)\
-$time\
-[](bg:peach fg:lavender)\
+[](bg:yellow fg:lavender)\
 $username\
 $os\
 [ ](fg:lavender)\
@@ -40,10 +38,7 @@ palette = 'catppuccin_mocha'
 # palette = 'catppuccin_latte'
 
 [time]
-disabled = false
-time_format = "%R"
-style = "fg:crust bg:peach"
-format = '[[   $time ](fg:crust bg:peach)]($style)'
+disabled = true
 
 [line_break]
 disabled = true
@@ -59,7 +54,7 @@ vimcmd_replace_symbol = '[❮](bold fg:lavender)'
 vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
-min_time = 600
+min_time = 1200
 show_milliseconds = true
 format = "[ took $duration ]($style)"
 style = "fg:crust bg:yellow"
