@@ -1,5 +1,10 @@
+# In devcontainers, sometimes there's a rogue $HISTFILE that messes with the history plugin
+if [[ -v OVERRIDE_HISTFILE ]]; then
+  export HISTFILE="$OVERRIDE_HISTFILE"
+fi
+
 # Configure the history plugin to respect $HISTFILE if it's configured
-if [[ ! -z "$HISTFILE" ]]; then
+if [[ -v HISTFILE ]]; then
   zstyle ':zephyr:plugin:history' histfile "$HISTFILE"
 fi
 
