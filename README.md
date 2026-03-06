@@ -27,7 +27,7 @@ A modern [zsh](https://www.zsh.org/) setup with [Antidote](https://antidote.sh/)
 
         cat << 'EOF' >| ~/.zshenv
         export ZDOTDIR=$HOME/.config/zsh
-        [[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
+        [[ -f \$ZDOTDIR/.zshenv ]] && . \$ZDOTDIR/.zshenv
         EOF
 
     Note: If you didn't install antidote via AUR, you'll have to configure the antidote dir. Add it to `.zshenv` before everything else: `export ANTIDOTE_DIR="/path/to/antidote"`
