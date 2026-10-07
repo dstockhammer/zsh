@@ -96,10 +96,8 @@ if command -v ory &> /dev/null; then
 fi
 
 # pnpm
-# Generate this file explicitly; invoking a Corepack shim during shell startup
-# can prompt for input and download pnpm. See README.md for the setup command.
-if [[ -r "$ZDOTDIR/pnpm-completion.zsh" ]]; then
-  source "$ZDOTDIR/pnpm-completion.zsh"
+if command -v pnpm &> /dev/null; then
+  source <(pnpm completion zsh)
 fi
 
 # direnv
