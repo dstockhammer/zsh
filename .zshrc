@@ -1,3 +1,33 @@
+# Unicode prompts and line editing need a UTF-8 character locale.
+() {
+  local charmap candidate
+  charmap=$(locale charmap 2>/dev/null)
+  [[ ${charmap:u} == (UTF-8|UTF8) ]] && return
+
+  # Probe common defaults too: some systems omit C.UTF-8 from `locale -a`.
+  for candidate in C.UTF-8 C.utf8 en_US.UTF-8 "${(@f)$(locale -a 2>/dev/null)}"; do
+    charmap=$(LC_ALL="$candidate" locale charmap 2>/dev/null)
+    [[ ${charmap:u} == (UTF-8|UTF8) ]] || continue
+
+    # LC_ALL takes precedence over LC_CTYPE when it is set.
+    if [[ -n $LC_ALL ]]; then
+      export LC_ALL="$candidate"
+    else
+      export LC_CTYPE="$candidate"
+    fi
+    return
+  done
+
+  print -u2 -r -- 'Error: no supported UTF-8 locale is available; zsh startup configuration stopped.'
+  print -u2 -r -- 'Enable a UTF-8 locale, then restart zsh:'
+  print -u2 -r -- '  Debian/Ubuntu: install locale support with `sudo apt install locales`.'
+  print -u2 -r -- '  Debian/Ubuntu/Arch: uncomment `en_US.UTF-8 UTF-8` in /etc/locale.gen,'
+  print -u2 -r -- '    then run `sudo locale-gen`.'
+  print -u2 -r -- '  Other systems: install or generate a UTF-8 locale using your OS locale tools.'
+  print -u2 -r -- 'Verify with `locale -a`; after restarting zsh, `locale charmap` should report UTF-8.'
+  return 1
+} || return 1
+
 # In devcontainers, sometimes there's a rogue $HISTFILE that messes with the history plugin
 if [[ -v OVERRIDE_HISTFILE ]]; then
   export HISTFILE="$OVERRIDE_HISTFILE"

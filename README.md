@@ -42,7 +42,9 @@ A modern [zsh](https://www.zsh.org/) setup with [Antidote](https://antidote.sh/)
 
 ### UTF-8 locale
 
-The Starship prompt uses Unicode symbols. `locale charmap` should report UTF-8; an ASCII locale can make typed text overwrite the prompt. Configure a supported UTF-8 locale in your system or user environment (for example, `C.UTF-8` on Debian).
+The Starship prompt uses Unicode symbols; an ASCII locale can make typed text overwrite the prompt. At startup, `.zshrc` keeps an existing UTF-8 locale or automatically selects a supported one, preferring `C.UTF-8`. It sets `LC_CTYPE`, or updates `LC_ALL` if that override is already set. This applies to the shell and its child processes, without changing system settings.
+
+If no supported UTF-8 locale is available, `.zshrc` stops initialization with a nonzero status and prints instructions for installing or generating one. On Debian/Ubuntu, install `locales` with `sudo apt install locales`. On Debian/Ubuntu/Arch, uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen` and run `sudo locale-gen`. After restarting the shell, `locale charmap` should report UTF-8.
 
 ### WSL browser integration
 
