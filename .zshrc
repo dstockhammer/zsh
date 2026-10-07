@@ -130,7 +130,7 @@ fi
 # noninteractive, both when checking availability and generating completions.
 if command -v pnpm &> /dev/null &&
   COREPACK_ENABLE_NETWORK=0 COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm --version </dev/null &> /dev/null; then
-  source <(pnpm completion zsh </dev/null)
+  source <(COREPACK_ENABLE_NETWORK=0 COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm completion zsh </dev/null)
 fi
 
 # direnv
