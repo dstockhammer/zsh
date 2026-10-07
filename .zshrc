@@ -38,13 +38,13 @@ if [[ -v HISTFILE ]]; then
   zstyle ':zephyr:plugin:history' histfile "$HISTFILE"
 fi
 
-# Antidote
-# https://antidote.sh
 # Conditional plugins need this helper before the generated bundle is sourced.
 function is-macos {
   [[ "$OSTYPE" == darwin* ]]
 }
 
+# Antidote
+# https://antidote.sh
 source ${ANTIDOTE_DIR:-/usr/share/zsh-antidote}/antidote.zsh
 antidote load
 
@@ -126,8 +126,6 @@ if command -v ory &> /dev/null; then
 fi
 
 # pnpm
-# Corepack shims may exist before pnpm is cached. Keep startup offline and
-# noninteractive, both when checking availability and generating completions.
 if command -v pnpm &> /dev/null &&
   COREPACK_ENABLE_NETWORK=0 COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm --version </dev/null &> /dev/null; then
   source <(COREPACK_ENABLE_NETWORK=0 COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm completion zsh </dev/null)
