@@ -40,6 +40,25 @@ A modern [zsh](https://www.zsh.org/) setup with [Antidote](https://antidote.sh/)
 
 ## Misc
 
+### pnpm completions
+
+Shell startup does not invoke pnpm, because a Corepack shim may need to download
+it and ask for confirmation. To enable completions, generate them explicitly:
+
+```zsh
+pnpm completion zsh > "$ZDOTDIR/pnpm-completion.zsh.tmp" &&
+  mv "$ZDOTDIR/pnpm-completion.zsh.tmp" "$ZDOTDIR/pnpm-completion.zsh"
+```
+
+Run this from an initialized zsh session, then open a new shell. Regenerate the
+file after changing pnpm versions. Remove it to disable pnpm completions.
+
+### UTF-8 locale
+
+The Starship prompt uses Unicode symbols. `locale charmap` should report UTF-8;
+an ASCII locale can make typed text overwrite the prompt. Configure a supported
+UTF-8 locale in your system or user environment (for example, `C.UTF-8` on Debian).
+
 ### WSL browser integration
 
 To configure WSL to open browser URLs in Windows, you can use the `wslview` utility, which is a part of the `wslu` package.

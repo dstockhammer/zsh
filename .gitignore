@@ -1,2 +1,4 @@
 .zsh_plugins.zsh
 .zsh_history
+pnpm-completion.zsh
+pnpm-completion.zsh.tmp

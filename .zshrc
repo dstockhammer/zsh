@@ -10,8 +10,22 @@ fi
 
 # Antidote
 # https://antidote.sh
+# Conditional plugins need this helper before the generated bundle is sourced.
+function is-macos {
+  [[ "$OSTYPE" == darwin* ]]
+}
+
 source ${ANTIDOTE_DIR:-/usr/share/zsh-antidote}/antidote.zsh
 antidote load
+
+# ez-compinit normally waits until the first prompt. Tool-generated completions
+# below need compdef during startup, so initialize now, after plugin fpaths load.
+if (( $+functions[run-compinit] )); then
+  run-compinit
+else
+  autoload -Uz compinit
+  compinit
+fi
 
 # History search
 # Must come after `antidote load`: it overrides the zephyr editor plugin's Up/Down
@@ -82,8 +96,10 @@ if command -v ory &> /dev/null; then
 fi
 
 # pnpm
-if command -v pnpm &> /dev/null; then
-  source <(pnpm completion zsh)
+# Generate this file explicitly; invoking a Corepack shim during shell startup
+# can prompt for input and download pnpm. See README.md for the setup command.
+if [[ -r "$ZDOTDIR/pnpm-completion.zsh" ]]; then
+  source "$ZDOTDIR/pnpm-completion.zsh"
 fi
 
 # direnv
