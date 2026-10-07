@@ -126,8 +126,11 @@ if command -v ory &> /dev/null; then
 fi
 
 # pnpm
-if command -v pnpm &> /dev/null; then
-  source <(pnpm completion zsh)
+# Corepack shims may exist before pnpm is cached. Keep startup offline and
+# noninteractive, both when checking availability and generating completions.
+if command -v pnpm &> /dev/null &&
+  COREPACK_ENABLE_NETWORK=0 COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm --version </dev/null &> /dev/null; then
+  source <(pnpm completion zsh </dev/null)
 fi
 
 # direnv
